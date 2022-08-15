@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace AtmApplication.UI
 {
     public static class Utility
     {
+        private static long TransId;
+
+        private static CultureInfo culture = new CultureInfo("pl-PL");
+
+        public static long GetTransactionId()
+        {
+            return ++TransId;
+        }
         public static string SecretInput(string prompt)
         {
             bool isPrompt = true;
@@ -81,6 +90,11 @@ namespace AtmApplication.UI
         {
             Console.WriteLine("\n\nPress Enter to continue...\n");
             Console.ReadLine();
+        }
+
+        public static string FormatAmount(decimal amt)
+        {
+            return String.Format(culture, "{0:C2}", amt);
         }
     }
 }

@@ -11,15 +11,15 @@ namespace AtmApplication.App
     {
         static void Main(string[] args)
         {
-            AppView.Welcome();
+            
             AtmApplication atmApplication = new AtmApplication();
             atmApplication.InitUsers();
-            atmApplication.CheckCardNumberAndPassword();
-            atmApplication.Welcome();
+            atmApplication.Go();
+            
             //int cardNumber = Validation.Convert<int>("Your card number");
             //Console.WriteLine($"Your card number is {cardNumber}");
 
-            Utility.PressEnterToProcess();
+            
         }
     }
 }
